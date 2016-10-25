@@ -52,10 +52,10 @@ public class NPrimo {
          
             if(NumeroPrimo(numero)){
                 System.out.println("El Numero "+ numero +" es PRIMO");   
-                System.out.println("El Siguiente Primo "+ SiguienteNumero +" es PRIMO");
+                System.out.println("El Siguiente Primo "+ SiguienteNumero(numero) +" es PRIMO");
             }else{
                 System.out.println("El Numero "+ numero +" no es PRIMO");   
-                System.out.println("El Siguiente Primo "+ SiguienteNumero +" es PRIMO");                
+                System.out.println("El Siguiente Primo "+ SiguienteNumero(numero) +" es PRIMO");                
             }
             if (numero == 0){
                 bandera = false;
