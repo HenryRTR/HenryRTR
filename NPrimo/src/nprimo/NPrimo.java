@@ -3,62 +3,61 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package nprimo;
+package numerosprimos;
 
 import java.util.Scanner;
 
-/**
- *
- * @author alumno
- */
-public class NPrimo {
 
-//Devuelve true si es primo, false en caso contrario
- public static boolean NumeroPrimo (int num){
-     boolean primo = true;
-     
-     for (int i=2; i<num;i++){
-         if ((num % i) == 0 ){
-             primo = false;
-             i=num+1;
-         }
+public class NumerosPrimos {
+    
+    //Devuelve true si es primo, false en caso contrario
+    public static boolean compruebaPrimo(int num){
+        boolean primo = true;
+        
+        for (int i=2;i<num;i++){
+            if ((num % i)==0 ){
+                primo = false;
+                i=num+1;
+            }
+        }
+        return primo;
     }
-     
-     return primo;
- } 
-  
-    public static int SiguienteNumero(int num){
+    
+    public static int siguientePrimo(int num){
         int primo = 0;
         boolean bandera = true;
-        
-        for (int i = (num+1); bandera == true; i++){
-            if (NumeroPrimo(i) ){
+        for (int i = (num+1);bandera == true; i++){
+            if (compruebaPrimo(i)){
                 bandera = false;
                 primo = i;
             }
+        }
+        
+        return primo;
     }
-    return primo;
-    } 
- 
+   
     public static void main(String[] args) {
+        
         boolean bandera = true;
         int numero = 0;
-        Scanner leer = new Scanner (System.in);
+        Scanner leer = new Scanner(System.in);
         
         while (bandera){
-            System.out.println("Dime un Numero");
+            System.out.println("Dime un numero para comprobar: ");
             numero = leer.nextInt();
-        }
-         
-            if(NumeroPrimo(numero)){
-                System.out.println("El Numero "+ numero +" es PRIMO");   
-                System.out.println("El Siguiente Primo "+ SiguienteNumero(numero) +" es PRIMO");
+            
+            if (compruebaPrimo(numero)){
+                System.out.println("El numero " + numero + " es primo");
+                System.out.println("El siguiente primo es: " + siguientePrimo(numero));
             }else{
-                System.out.println("El Numero "+ numero +" no es PRIMO");   
-                System.out.println("El Siguiente Primo "+ SiguienteNumero(numero) +" es PRIMO");                
+                System.out.println("El numero " + numero + " NO es primo");
+                System.out.println("El siguiente primo es: " + siguientePrimo(numero));
             }
+            
             if (numero == 0){
                 bandera = false;
             }
-}
+        }
+    }
+    
 }
